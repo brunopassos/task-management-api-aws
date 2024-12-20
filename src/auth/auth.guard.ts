@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private jwtService: JwtService,
     private configService: ConfigService
   ){
-    this.jwtSecret = this.configService.get<string>('JWT_SECRET')
+    this.jwtSecret = process.env.JWT_SECRET
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
